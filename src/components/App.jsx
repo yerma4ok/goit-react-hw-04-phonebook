@@ -1,4 +1,4 @@
-import {  useState, useEffect  } from 'react';
+import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import FormAddContact from './FormAddContact';
 import SectionWrap from './SectionWrap';
@@ -32,7 +32,6 @@ export default function App() {
 
   const changeFilter = e => {
     setFilter(e.currentTarget.value);
-    
   };
 
   const normalizedFilter = filter.toLowerCase();
@@ -60,20 +59,17 @@ export default function App() {
     localStorage.setItem('contactsList', JSON.stringify(contacts));
   }, [contacts]);
 
-    return (
-      <>
-        <SectionWrap>
-          <MainTitle>Phonebook</MainTitle>
-          <FormAddContact onAddFormSubmit={addContact} />
-        </SectionWrap>
-        <SectionWrap>
-          <ContactTitle>Contacts</ContactTitle>
-          <FilterByName value={filter} onChange={changeFilter} />
-          <ContactsList
-            contacts={sortedContacts}
-            deleteContact={deleteContact}
-          />
-        </SectionWrap>
-      </>
-    );
-  }
+  return (
+    <>
+      <SectionWrap>
+        <MainTitle>Phonebook</MainTitle>
+        <FormAddContact onAddFormSubmit={addContact} />
+      </SectionWrap>
+      <SectionWrap>
+        <ContactTitle>Contacts</ContactTitle>
+        <FilterByName value={filter} onChange={changeFilter} />
+        <ContactsList contacts={sortedContacts} deleteContact={deleteContact} />
+      </SectionWrap>
+    </>
+  );
+}

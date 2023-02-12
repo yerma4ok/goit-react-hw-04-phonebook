@@ -32,6 +32,7 @@ export default function App() {
 
   const changeFilter = e => {
     setFilter(e.currentTarget.value);
+    
   };
 
   const normalizedFilter = filter.toLowerCase();
@@ -63,14 +64,14 @@ export default function App() {
       <>
         <SectionWrap>
           <MainTitle>Phonebook</MainTitle>
-          <FormAddContact onAddFormSubmit={this.addContact} />
+          <FormAddContact onAddFormSubmit={addContact} />
         </SectionWrap>
         <SectionWrap>
           <ContactTitle>Contacts</ContactTitle>
-          <FilterByName value={filter} onChange={this.changeFilter} />
+          <FilterByName value={filter} onChange={changeFilter} />
           <ContactsList
             contacts={sortedContacts}
-            deleteContact={this.deleteContact}
+            deleteContact={deleteContact}
           />
         </SectionWrap>
       </>
